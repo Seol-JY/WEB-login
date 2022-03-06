@@ -1,0 +1,124 @@
+html {
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  }
+  
+form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 551px;
+  height: 427px;
+  border: #e2e2e254 1px solid;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.11);
+}
+
+h1 {
+  color: #696eff;
+  font-size: 37px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  line-height: 0;
+  text-align: center;
+}
+
+input {
+  border: rgb(0,0,0,.2) 1px solid;
+  width: 503px;
+  height: 30px;
+  font-size: 18px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #696eff;
+}
+
+input::placeholder {
+    color: #bdbdbd;
+    padding-left: 10px;
+}
+
+#email {
+  width: 503px;
+  height: 60px;
+  border-bottom-width: 0.5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#password {
+  width: 503px;
+  height: 60px;
+  border-top-width: 0.5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#login:hover {
+  cursor:pointer;
+  background-color: #4d53fd;
+}
+
+button {
+  width: 503px;
+  height: 60px;
+  padding: 0;
+  margin-top: 40px;
+  margin-left: 24px; 
+  line-height: 0;
+  border: none;
+  border-radius: 10px;
+  background-color: #696eff;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+}
+
+#option {
+    text-align: end;
+    margin-right: 24px;   
+}
+span, a{
+    margin: 3px;
+    color: rgb(0,0,0,.5);
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#signup {
+    margin-right: 0;
+}
+
+@media (max-width: 740px){
+  form {
+      width: 78%;
+  }
+}
+
+@media (max-width: 740px){
+  #email, #password {
+      width: 90%;
+  }
+}
+
+@media (max-width: 740px){
+  button {
+      width: 90%;
+  }
+}
+
