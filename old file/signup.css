@@ -1,0 +1,150 @@
+html {
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+
+form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 551px;
+  height: 850px;
+  border: #e2e2e254 1px solid;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.11);
+}
+
+form>ul>li:nth-of-type(1) {
+  margin-bottom: 80px;
+}
+
+li:nth-of-type(2) {
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: #696eff;
+  font-size: 37px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  line-height: 0;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin: 25px;
+  text-align: left;
+  color: #6d6d6d;
+}
+
+input {
+  display:block;
+  border: rgba(116, 116, 116, 0.2) 1px solid;
+  width: 503px;
+  height: 60px;
+  font-size: 18px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.11);
+  border-radius: 10px;
+  margin: auto;
+  padding-left:10px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #696eff;
+}
+
+div {
+  display: flex;
+}
+
+.info {
+  padding: 21px;
+  padding-top: 0;
+}
+
+#name {
+  width: 200px;
+}
+
+#sex {
+  width: 80px;
+  height: 64px;
+  margin-left: 21px;
+  margin-right: 21px;
+  border: rgb(0,0,0,.2) 1px solid;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.11);
+}
+
+.s-label {
+  margin-left:3px;
+}
+
+#date {
+  width: 164px;
+}
+
+button {
+  width: 503px;
+  height: 60px;
+  padding: 0;
+  margin-left: 24px; 
+  line-height: 0;
+  border: none;
+  border-radius: 10px;
+  background-color: #696eff;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+  
+button:hover {
+  cursor:pointer;
+  background-color: #4d53fd;
+}
+
+@media (max-width: 740px){
+  form {
+      width: 78%;
+  }
+
+  input, #signup {
+      width: 90%;
+  }
+  
+  .info {
+      display: block;
+      padding-left: 3%;
+      padding-bottom: 0;
+  }
+
+  #name, #sex, #date{
+      margin-left: 0;
+  }
+
+  #name {
+      width: 260px;
+  }
+  
+  .s-label {
+      margin-left: 10px;
+  }
+
+  .xs-label {
+      margin-left: 10px;
+  }
+
+  form>ul>li:nth-of-type(1) {
+      margin-bottom: 30px;
+  }
+}
