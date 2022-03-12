@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/home/register.css">
+    <script src="/js/home/register.js" defer></script>
+    
+</head>
+
+<body>
+    <form action="">
+        <h1>회원가입</h1>
+        <ul>
+            <li>
+                <label for="email">이메일 또는 전화번호</label>
+                <input type="text" id="email" name="email" required>
+            </li>
+            <li>
+                <label for="pwd">비밀번호</label>
+                <input type="password" id="pwd" name="pwd" required>
+            </li>
+            <li>
+                <label for="pwd_c">비밀번호 재확인</label>
+                <input type="password" id="pwd_c" name="pwd_c" required>
+            </li>
+            <div class="info">
+                <li>
+                    <label for="name" class="s-label">이름</label>
+                    <input type="text" id="name" name="name" required>
+                </li>
+                <div>
+                    <li>
+                        <label for="" class="xs-label">성별</label>
+                        <select name="sex" id="sex">
+                            <option value="none" selected>선택</option>
+                            <option value="man">남성</option>
+                            <option value="woman">여성</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="date" class="s-label">생년월일</label>
+                        <input type="date" id="date" name="date">
+                    </li>
+                </div>
+            </div>
+        </ul>
+        <p id="button">가입하기</p>
+    </form>
+</body>
+
+</html>

@@ -4,6 +4,9 @@ class UserStorage {
     static #users = {
         email: ["wlsdud5654", "admin"],
         password: ["123456789", "1234"],
+        name: [],
+        sex: [],
+        date: [],
     };
 
     static getUsers(...fields) {
@@ -16,6 +19,7 @@ class UserStorage {
         }, {});
         return newUsers;
     };
+
     static getUserInfo(email) {
         const users = this.#users;
         const idx = users.email.indexOf(email);
@@ -27,6 +31,16 @@ class UserStorage {
 
         return userInfo;
     }
+
+    static save(userInfo) {
+        const users = this.#users;
+        users.email.push(userInfo.email);
+        users.password.push(userInfo.password);
+
+        return {success:true};
+
+    }
+
 };
 
 module.exports = UserStorage;
