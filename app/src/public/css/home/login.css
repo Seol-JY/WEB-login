@@ -69,19 +69,25 @@ input::placeholder {
   background-color: #4d53fd;
 }
 
-button {
+#button {
+  text-align: center;
+  padding-top: 100px;
   width: 503px;
   height: 60px;
   padding: 0;
-  margin-top: 40px;
   margin-left: 24px; 
-  line-height: 0;
+  line-height: 60px;
   border: none;
   border-radius: 10px;
   background-color: #696eff;
   color: white;
   font-size: 22px;
   font-weight: bold;
+}
+
+#button:hover {
+  cursor:pointer;
+  background-color: #4d53fd;
 }
 
 div {
@@ -117,7 +123,7 @@ span, a{
 }
 
 @media (max-width: 740px){
-  button {
+  #button {
       width: 90%;
   }
 }
