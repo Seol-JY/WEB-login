@@ -1,5 +1,5 @@
 "use strict";
-
+const bcrypt = require('bcrypt');
 const UserStorage = require("./UserStorage");
 
 class User {
@@ -14,8 +14,9 @@ class User {
         try {
             const user = await UserStorage.getUserInfo(client.email);
             
-            if (user.email) {
-                if (user.email === client.email && user.password === client.password) {
+            if (user) {
+                const auth = bcrypt.compareSync(client.password,user.password);
+                if (user.email === client.email && auth) { // password 진위여부 확인
                     return {success: true};
                 }
                 return {success: false, msg: "비밀번호가 틀렸습니다."}
@@ -23,7 +24,7 @@ class User {
             return {success: false, msg: "존재하지 않는 아이디입니다."}
         } catch (err) {
             console.log(err);
-            return { success: false, msg: "존재하지 않는 아이디입니다."};
+            return { success: false, msg: "예외 오류 발생!"};
         }
     }
 

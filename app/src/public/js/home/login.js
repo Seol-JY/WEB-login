@@ -23,7 +23,6 @@
             if (res.success) {
                 location.href = "/";
             } else {
-                console.log(res);
                 alert(res.msg);
             }
         })

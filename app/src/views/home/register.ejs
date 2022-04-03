@@ -16,21 +16,27 @@
         <h1>회원가입</h1>
         <ul>
             <li>
-                <label for="email">이메일 또는 전화번호</label>
-                <input type="text" id="email" name="email" required>
+                <label for="email">이메일</label>
+                <input type="email" id="email" name="email" maxlength='30' required>
+                <div class="errmsg" id="email_err">이메일을 입력하세요.</div>
+                <div class="errmsg" id="email_chk_err">올바른 이메일 형식이 아닙니다.</div>
             </li>
             <li>
                 <label for="pwd">비밀번호</label>
-                <input type="password" id="pwd" name="pwd" required>
+                <input type="password" id="pwd" name="pwd" maxlength='16' required>
+                <div class="errmsg" id="pwd_err">비밀번호를 입력하세요.</div>
+                <div class="errmsg" id="pwd_chk_err">8~16자 영문 대 소문자, 숫자를 사용하세요.</div>
             </li>
             <li>
                 <label for="pwd_c">비밀번호 재확인</label>
-                <input type="password" id="pwd_c" name="pwd_c" required>
+                <input type="password" id="pwd_c" name="pwd_c" maxlength='16' required>
+                <div class="errmsg" id="pwd_c_err">비밀번호가 일치하지 않습니다.</div>
             </li>
             <div class="info">
                 <li>
                     <label for="name" class="s-label">이름</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" maxlength='30' required>
+                    <div class="errmsg_opt" id="name_err">이름을 입력하세요.</div>
                 </li>
                 <div>
                     <li>
@@ -40,10 +46,12 @@
                             <option value="man">남성</option>
                             <option value="woman">여성</option>
                         </select>
+                        <div class="errmsg_opt" id="sex_err">성별을 입력하세요.</div>
                     </li>
                     <li>
                         <label for="date" class="s-label">생년월일</label>
                         <input type="date" id="date" name="date">
+                        <div class="errmsg_opt" id="date_err">생년월일을 입력하세요.</div>
                     </li>
                 </div>
             </div>

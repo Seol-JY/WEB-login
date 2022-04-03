@@ -12,6 +12,9 @@ const output ={
     register: (req, res) => {
         res.render("home/register");
     },
+    registerSuccess: (req, res) => {
+        res.render("home/registerSuccess");
+    }
 };
 
 const process ={

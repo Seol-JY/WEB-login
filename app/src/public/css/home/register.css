@@ -8,21 +8,24 @@ html {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 551px;
-    height: 850px;
+    height: auto;
     border: #e2e2e254 1px solid;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0px;
+    padding: 20px 0px;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.11);
   }
   
   form>ul>li:nth-of-type(1) {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
   }
   
   li:nth-of-type(2) {
+    margin-bottom: 10px;
+  }
+  li:nth-of-type(3) {
     margin-bottom: 30px;
   }
   
@@ -40,6 +43,7 @@ html {
   }
   
   label {
+    font-size: 18px;
     display: block;
     margin: 25px;
     text-align: left;
@@ -48,11 +52,11 @@ html {
   
   input {
     display:block;
-    border: rgba(116, 116, 116, 0.2) 1px solid;
-    width: 503px;
+    border: rgb(0,0,0,.2) 1px solid;
+    width: 493px;
     height: 60px;
     font-size: 18px;
-    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.11);
+    
     border-radius: 10px;
     margin: auto;
     padding-left:10px;
@@ -83,7 +87,6 @@ html {
     margin-right: 21px;
     border: rgb(0,0,0,.2) 1px solid;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.11);
   }
   
   .s-label {
@@ -92,6 +95,27 @@ html {
   
   #date {
     width: 164px;
+    height: 62px;
+  }
+
+  .errmsg {
+    font-size: 14px;
+    display: none;
+    margin-left: 25px;
+    margin-top: 17px;
+    margin-bottom: 30px;
+    text-align: left;
+    color: red;
+  }
+
+  .errmsg_opt {
+    font-size: 14px;
+    display: none;
+    margin-top: 17px;
+    margin-left: 3px;
+    margin-bottom: 30px;
+    text-align: left;
+    color: red;
   }
   
   #button {
