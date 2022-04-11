@@ -14,17 +14,19 @@
 
 <body>
     <form action="">
-        <h1>Login</h1>
+        <h1>로그인</h1>
         <div>
             <ul>
                 <li><input id="email" type="text" placeholder="이메일 또는 전화번호" required></li>
                 <li><input id="password" type="password" placeholder="비밀번호" required></li>
             </ul>
-            <ul id="option">
+            <div id="option">
+                <input type="checkbox" id="keep">
+                <label for="keep">로그인 상태 유지</label>
                 <a href="/find">계정찾기</a>
                 <span>|</span>
                 <a href="/register" id="register">회원가입</a>
-            </ul>
+            </div>
         </div>
         <p id="button">로그인</p>
         <!--button type default값 = "submit"-->

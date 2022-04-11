@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 
 const User = require("../../model/User");
 
@@ -14,6 +14,9 @@ const output ={
     },
     registerSuccess: (req, res) => {
         res.render("home/registerSuccess");
+    },
+    test: (req, res) => {
+        res.send("test");
     }
 };
 
@@ -21,14 +24,27 @@ const process ={
     login: async (req, res) => {
         const user = new User(req.body);
         const response = await user.login();
+        const url = {
+            method: "POST",
+            path: "/login",
+            status: response.err ? 400 : 200
+        };
+        res.cookie('accessToken', response.accessToken, {overwrite: true}); 
+        res.cookie('refreshToken', response.refreshToken, {overwrite: true});
         return res.json(response);
     },
     
     register: async (req, res) => {
         const user = new User(req.body);
         const response = await user.register();
-        return res.json(response);
+        const url = {
+            method: "POST",
+            path: "/login",
+            status: response.err ? 409 : 201
+        };
+        return res.status(url.status).json(response);
     },
+
 };
 
 module.exports = {

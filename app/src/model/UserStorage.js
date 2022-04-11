@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 class UserStorage {
 
-    static getUserInfo(email) {
+    static async getUserInfo(email) {
         return new Promise((resolve, reject) => {
             const query = "SELECT * FROM users WHERE email = ?;"
             db.query(query, [email], (err, data) => {
@@ -26,6 +26,38 @@ class UserStorage {
         });
     }
 
+    static async getJwtToken (email) {
+        return new Promise((resolve, reject) => {
+            const query = "SELECT * FROM tokens WHERE email = ?;"
+            db.query(query,[email],(err, data) => {
+                if (err) reject (err);
+                resolve(data[0].token);
+            });
+        })
+
+    }
+
+    static async getJwtEmail (token) {
+        return new Promise((resolve, reject) => {
+            const query = "SELECT * FROM tokens WHERE token = ?;"
+            db.query(query,[token],(err, data) => {
+                if (err) reject (err);
+                resolve(data[0].email);
+            });
+        })
+
+    }
+
+    static async setJwtToken (email, token) {
+        return new Promise((resolve, reject) => {
+            const query = "INSERT INTO tokens(email, token) VALUES(?, ?) ON DUPLICATE KEY UPDATE email= ?, token =?;"
+            db.query(query, [email, token, email, token], (err) => {
+                if (err) reject(err);
+                resolve(true);
+            });
+        })
+
+    }
 };
 
 module.exports = UserStorage;

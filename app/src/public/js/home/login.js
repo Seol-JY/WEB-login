@@ -2,7 +2,8 @@
 
  const email = document.querySelector("#email"), 
   password = document.querySelector("#password"),
-  loginbtn = document.querySelector("#button");
+  loginbtn = document.querySelector("#button"),
+  keepchk = document.querySelector("#keep");
 
   loginbtn.addEventListener("click", login);
 
@@ -10,6 +11,7 @@
       const req = {
           email: email.value,
           password: password.value,
+          keepchk: keepchk.value
       }
 
       fetch("/login",{

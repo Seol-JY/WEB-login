@@ -1,6 +1,7 @@
 "use strict";
 const bcrypt = require('bcrypt');
 const UserStorage = require("./UserStorage");
+const Jwt = require("../routes/home/home.jwt"); 
 
 class User {
 
@@ -17,7 +18,11 @@ class User {
             if (user) {
                 const auth = bcrypt.compareSync(client.password,user.password);
                 if (user.email === client.email && auth) { // password 진위여부 확인
-                    return {success: true};
+                    console.log(client.keepchk);
+                    const accessToken = Jwt.sign(user);
+                    const refreshToken = (client.keepchk==="on")?Jwt.refreshforkeep():Jwt.refresh();
+                    const refresh = await UserStorage.setJwtToken(user.email,refreshToken);
+                    return {success: refresh, accessToken: accessToken, refreshToken: refreshToken}///////  
                 }
                 return {success: false, msg: "비밀번호가 틀렸습니다."}
             }
