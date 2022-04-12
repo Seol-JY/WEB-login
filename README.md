@@ -4,7 +4,7 @@
 ![1](https://i.imgur.com/8PJFuNe.png)
 
 ## 업데이트
-- JWT구현중(DB관련 일부 오류 수정중...)
+- JWT구현완료
 
 ## 기술 스택
 **Node.js, Express.js, JsonWebToken, MySql, AWS RDS**

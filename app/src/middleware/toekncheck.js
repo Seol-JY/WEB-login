@@ -3,7 +3,9 @@ const UserStorage = require("../model/UserStorage");
 
 module.exports = {
   async checkTokens(req, res, next) {
-    if (req.cookies.accessToken === undefined) return res.redirect("/login"); 
+    if (req.cookies.accessToken === undefined || req.cookies.refreshToken === undefined) {
+        return res.redirect("/login");} 
+
     const accessToken = await Jwt.verify(req.cookies.accessToken);
     const refreshToken = await Jwt.refreshVerify(req.cookies.refreshToken,"test"); // *실제로는 DB 조회
     if (accessToken === null) {
@@ -19,7 +21,7 @@ module.exports = {
     } else {
         if (refreshToken === undefined) { // case3: access token은 유효하지만, refresh token은 만료된 경우
             const newRefreshToken = Jwt.refresh();
-            UserStorage.setJwtToken(accessToken.eamil, newRefreshToken);
+            UserStorage.setJwtToken(accessToken.email, newRefreshToken);
             res.cookie('refreshToken', newRefreshToken);
             next();
         } else { // case4: accesss token과 refresh token 모두가 유효한 경우

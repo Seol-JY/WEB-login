@@ -11,7 +11,7 @@
       const req = {
           email: email.value,
           password: password.value,
-          keepchk: keepchk.value
+          keepchk: keepchk.checked
       }
 
       fetch("/login",{
