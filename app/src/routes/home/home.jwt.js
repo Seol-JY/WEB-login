@@ -9,7 +9,7 @@ module.exports = {
       };
       return jwt.sign(payload, secret, { // secret으로 sign하여 발급하고 return
         algorithm: 'HS256', // 암호화 알고리즘
-        expiresIn: '1m', 	  // 유효기간
+        expiresIn: '10m', 	  // 유효기간
       });
     },
     verify: async (token) => { // access token 검증
@@ -26,14 +26,14 @@ module.exports = {
     refresh: () => { // refresh token 발급
       return jwt.sign({}, secret, { // refresh token은 payload 없이 발급
         algorithm: 'HS256',
-        expiresIn: '5m',
+        expiresIn: '1d',  
       });
     },
 
     refreshforkeep: () => { // refresh token 발급 (자동 로그인용!)
       return jwt.sign({}, secret, { // refresh token은 payload 없이 발급
         algorithm: 'HS256',
-        expiresIn: '1d',
+        expiresIn: '14d',
       });
     },
 

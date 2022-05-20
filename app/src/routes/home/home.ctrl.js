@@ -4,11 +4,14 @@ const User = require("../../model/User");
 
 const output ={
     hello: (req, res) => {
-        res.render("home/index");
+        if (req.data) {res.render("home/indexon",req.data)}
+        else {res.render("home/index");} 
+        console.log(req.data);
     },
     login: (req, res) => {
         res.render("home/login");
     },
+    
     register: (req, res) => {
         res.render("home/register");
     },
@@ -27,13 +30,16 @@ const process ={
         const url = {
             method: "POST",
             path: "/login",
-            status: response.err ? 400 : 200
+            status: response.success ? 200 : 400
         };
-        res.cookie('accessToken', response.accessToken, {overwrite: true}); 
-        res.cookie('refreshToken', response.refreshToken, {overwrite: true});
+        if(response.success == true) {
+            res.cookie('accessToken', response.accessToken, {overwrite: true});
+            if (response.keepchk) { res.cookie('refreshToken', response.refreshToken, {overwrite: true, maxAge: 1.21e+9} );}
+            else { res.cookie('refreshToken', response.refreshToken, {overwrite: true});} 
+        }
         return res.json(response);
     },
-    
+    logout: async (req, res) => {  res.cookie('refreshToken', "", {maxAge:0}); res.redirect('/'); },
     register: async (req, res) => {
         const user = new User(req.body);
         const response = await user.register();

@@ -6,12 +6,12 @@ const ctrl = require("./home.ctrl");
 const tokencheck = require("../../middleware/toekncheck");
 
 
-router.get("/", ctrl.output.hello);
+router.get("/",tokencheck.checkTokens("",0), ctrl.output.hello);
 router.get("/login", ctrl.output.login);
 router.get("/register", ctrl.output.register);
 router.get("/registerSuccess", ctrl.output.registerSuccess);
-router.get("/test", tokencheck.checkTokens, ctrl.output.test);
-
+router.get("/test", tokencheck.checkTokens("/login",1), ctrl.output.test);
+router.get("/logout", ctrl.process.logout);
 
 router.post("/login", ctrl.process.login);
 router.post("/register", ctrl.process.register)
