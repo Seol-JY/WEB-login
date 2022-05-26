@@ -1,12 +1,50 @@
 html {
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    width: 100%;
+    height: 100% ;
   }
-  
-form {
+
+#main { 
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+#or {
+  color: #ADADAD;
+  font-weight:300;
+  font-size: 16px;
+  float:none;
+  margin: 32px 0px 18px 0px;
+  
+}
+.oauth{
+  display: flex;
+  width: 503px;
+  height: 60px;
+  justify-content: center;
+  padding: 0px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.11);
+  border-radius: 9px;
+  cursor: pointer;
+}
+#kakao{
+  float: left;
+  background-color: #FEE500;
+  margin-left: 24px;
+}
+#naver{
+  float: left;
+  background-color: #03c75a;
+  margin-left: 24px;
+  margin-top: 10px;
+}
+.oauth:hover {
+  filter: brightness(97%); 
+}
+
+form {
   width: 551px;
   height: 427px;
   border: #e2e2e254 1px solid;
@@ -103,7 +141,7 @@ input::placeholder {
   background-color: #4d53fd;
 }
 
-div {
+#main > div {
     display: flex;
     flex-direction: column;
 }
@@ -135,28 +173,3 @@ label {
   text-decoration: none;
   font-size: 17px;
 }
-
-
-
-#signup {
-    margin-right: 0;
-}
-
-@media (max-width: 740px){
-  form {
-      width: 78%;
-  }
-}
-
-@media (max-width: 740px){
-  #email, #password {
-      width: 90%;
-  }
-}
-
-@media (max-width: 740px){
-  #button {
-      width: 90%;
-  }
-}
-

@@ -1,5 +1,5 @@
 "use strict";
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const UserStorage = require("./UserStorage");
 const Jwt = require("../routes/home/home.jwt"); 
 
