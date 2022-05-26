@@ -18,7 +18,7 @@
 **JsonWebToken**  
 **Oauth2.0 with Kakao login API**  
 **MySql Database**  
-**AWS RDS**
+**AWS RDS**  
 **AWS Elastic Beanstalk**  
 **MVC Pattern**  
 
