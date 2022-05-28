@@ -3,54 +3,52 @@ const secret = process.env.SECRET;
 const UserStorage = require("../../model/UserStorage");
 
 module.exports = {
-    sign: (user) => { // access token 발급
-      const payload = { // access token에 들어갈 payload
-        email: user.email,
-      };
-      return jwt.sign(payload, secret, { // secret으로 sign하여 발급하고 return
-        algorithm: 'HS256', // 암호화 알고리즘
-        expiresIn: '10m', 	  // 유효기간
-      });
-    },
-    verify: async (token) => { // access token 검증
-      let decoded = null;
-      try {
-        decoded = jwt.verify(token, secret);
+  sign: (user) => { // access token 발급
+    const payload = { // access token에 들어갈 payload
+      email: user.email,
+    };
 
-        return decoded;
-      } catch (err) {
-        return null;
-      }
-    },
+    return jwt.sign(payload, secret, { // secret으로 sign하여 발급하고 return
+      algorithm: 'HS256', // 암호화 알고리즘
+      expiresIn: '1m', 	  // 유효기간
+    });
+  },
 
-    refresh: () => { // refresh token 발급
-      return jwt.sign({}, secret, { // refresh token은 payload 없이 발급
-        algorithm: 'HS256',
-        expiresIn: '1d',  
-      });
-    },
+  refresh: () => { // refresh token 발급
+    return jwt.sign({}, secret, { // refresh token은 payload 없이 발급
+      algorithm: 'HS256',
+      expiresIn: '1d',  
+    });
+  },
 
-    refreshforkeep: () => { // refresh token 발급 (자동 로그인용!)
-      return jwt.sign({}, secret, { // refresh token은 payload 없이 발급
-        algorithm: 'HS256',
-        expiresIn: '14d',
-      });
-    },
+  refreshforkeep: () => { // refresh token 발급 (자동 로그인용!)
+    return jwt.sign({}, secret, { // refresh token은 payload 없이 발급
+      algorithm: 'HS256',
+      expiresIn: '14d',
+    });
+  },
 
-    refreshVerify:  async(token, email) => { // refresh token 검증
-      try {
-        const data = await UserStorage.getJwtToken(email); // refresh token 가져오기
-        if (token === data) {
-          try {
-            return jwt.verify(token, secret);
-          } catch (err) {
-            return undefined;
-          }
-        } else {
-          return undefined;
+  verify: async (token) => { // access token 검증
+    try {
+      return jwt.verify(token, secret);
+    } catch (err) {
+      return null;
+    }
+  },
+  refreshVerify:  async(token, email) => { // refresh token 검증
+    try {
+      const data = await UserStorage.getJwtToken(email); // refresh token 가져오기
+      if (data && (token === data.token)) {
+        try {
+          return jwt.verify(token, secret);
+        } catch (err) {
+          return null;
         }
-      } catch (err) {
-        return err;
-      }
-    },
-  };
+      } else {
+        return null;
+      } 
+    } catch (err) {
+      return null;
+    }
+  }
+}

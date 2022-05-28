@@ -30,7 +30,7 @@ class UserStorage {
             const query = "SELECT * FROM tokens WHERE email = ?;"
             db.query(query,[email],(err, data) => {
                 if (err) reject (err);
-                resolve(data[0].token);
+                resolve(data[0]);
             });
         })
 
@@ -41,7 +41,8 @@ class UserStorage {
             const query = "SELECT * FROM tokens WHERE token = ?;"
             db.query(query,[token],(err, data) => {
                 if (err) reject (err);
-                resolve(data[0].email);
+                if(data.length==1) resolve(data[0].email);
+                else resolve("");
             });
         })
 
