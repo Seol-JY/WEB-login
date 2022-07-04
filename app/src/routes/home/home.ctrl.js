@@ -91,7 +91,11 @@ const proc ={
         }
         return res.json(response);
     },
-    logout: async (req, res) => {  res.cookie('refreshToken', "", {maxAge:0}); res.redirect('/'); },
+    logout: async (req, res) => {
+        res.cookie('accessToken', "", {maxAge:0});
+        res.cookie('refreshToken', "", {maxAge:0});
+        res.redirect('/'); 
+    },
     register: async (req, res) => {
         const user = new User(req.body);
         const response = await user.register();

@@ -13,13 +13,14 @@ module.exports = {
         return async function(req, res, next) {
             try {
                 if (req.cookies.tokenType === "1") {
-                    req.data = await ctrl.proc.kakaoprofile(req,res);
-                    next();
+                    if (req.cookies.accessToken!=undefined) {
+                        req.data = await ctrl.proc.kakaoprofile(req,res);
+                        next();
+                    } else { return opt?res.redirect(redir):next(); }
                 }
                 if (req.cookies.refreshToken === undefined) {
                     return opt?res.redirect(redir):next(); 
                 } 
- 
                 const accessToken = await Jwt.verify(req.cookies.accessToken);
                 const refreshToken = await Jwt.refreshVerify(req.cookies.refreshToken, await UserStorage.getJwtEmail(req.cookies.refreshToken));
                 if (!accessToken) {

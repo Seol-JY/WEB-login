@@ -14,9 +14,9 @@ router.get("/login", ctrl.output.login);
 router.get("/register", ctrl.output.register);
 router.get("/registerSuccess", ctrl.output.registerSuccess);
 router.get("/test", tokencheck.checkTokens("/login",1), ctrl.output.test);
+
+
 router.get("/logout", ctrl.proc.logout);
-
-
 router.post("/login", ctrl.proc.login);
 router.post("/register", ctrl.proc.register)
 

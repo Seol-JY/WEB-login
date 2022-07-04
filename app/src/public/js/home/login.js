@@ -7,6 +7,11 @@
   keepchk = document.querySelector("#keep");
 
 loginbtn.addEventListener("click", login);
+document.querySelector("#main").addEventListener("keyup", enterlogin);
+
+function enterlogin(e) {
+    if (e.keyCode == 13) login();
+}
 
 function login() {
     const req = {
