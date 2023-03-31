@@ -1,7 +1,7 @@
 # WEB login Boiler-plate  
 
 ![1](https://i.imgur.com/DMivTYI.png)
-[사용해보기](http://logintest-env.eba-p4x82irp.ap-northeast-2.elasticbeanstalk.com)
+~~사용해보기~~ (요금 문제로 서버를 닫음)
 
 
 ## 소개  
